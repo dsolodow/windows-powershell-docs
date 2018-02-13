@@ -245,6 +245,7 @@ Accept wildcard characters: False
 ```
 
 ### -ComputerName
+Specifies the Domain Name System (DNS) name or IP address of the target computer.
 
 Specifies the Domain Name System (DNS) name or IP address of the target computer.
 
