@@ -144,26 +144,16 @@ The contents of the filelist.txt file resemble the following information:
 - `http://server01/servertestdir/testfile3.txt, c:\clienttestdir\testfile3.txt`
 - `http://server01/servertestdir/testfile4.txt, c:\clienttestdir\testfile4.txt`
 
-### Example 7: Create a BITS transfer job that downloads multiple files
+
+### Example 7: Create a BITS transfer job that downloads multiple files 
 ```
-PS C:\> Start-BitsTransfer -Source "http://server01/servertestdir/*.*" -Destination "c:\clienttestdir\"
+PS C:\> Start-BitsTransfer -Source C:\clientsourcedir\*.txt -Destination c:\clientdir\ -TransferType Download
 ```
 
-This command creates a BITS transfer job that downloads multiple files from a server.
+In the preceding example, the **Start-BitsTransfer** command creates a new BITS transfer job. All of the files are added to this job and transferred sequentially to the client.
 
-The **Start-BitsTransfer** command creates a new BITS transfer job.
-All the files are added to a single job and then transferred sequentially to the client.
-
-The following command shows another variation of a file transfer command that uses a wildcard character:
-
-`Start-BitsTransfer -Source "http://server01/servertestdir/*.txt" -Destination "c:\clienttestdir\"`
-
-The destination path cannot use wildcard characters.
-The destination path supports only a relative directory, a rooted path, or an implicit directory (the current directory).
-Additionally, the destination files cannot be renamed by using a wildcard character.
-For instance, the following command does not work:
-
-`c:\clienttestdir\*.BAK`
+> [!NOTE]
+> The destination path cannot use wildcard characters. The destination path supports relative directories, root paths, or implicit directories (that is, the current directory). Destination files cannot be renamed by using a wildcard character. Additionally, HTTP and HTTPS URLs do not work with wildcards. Wildcards are only valid for UNC paths and local directories.
 
 ### Example 8: Create BITS transfer jobs that upload multiple files
 ```
